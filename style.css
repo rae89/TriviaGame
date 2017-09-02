@@ -1,0 +1,61 @@
+body {
+  
+  background: url("/Users/Code2Success/desktop/90s.jpg") right no-repeat fixed;
+  background-color: beige;
+    padding: 15px;
+    height: 940px;
+    width: 840px;
+}  
+
+
+
+.container {
+  background-color: beige;
+  text-align:center;
+
+} 
+
+canvas{
+  color: white;
+  border: $white dashed 2px;
+  padding:15px;
+  text-align:center;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 20px;
+  text-align:center;
+}
+h1 {
+    font-size: 208px;
+  color:black;
+  font-family: 'Permanent Marker', cursive;
+  text-align:center;
+
+  
+  }
+
+h2 {font-size: 55px;
+  color:black;
+  font-family: 'sedgwick Ave', cursive;
+  text-align:center;
+}
+p {
+  font-size: 20px;
+  color:navy;
+  font-family:'Sedgwick Ave', cursive;
+  text-align: center;
+  
+ 
+}
+
+ 
+}
+.a {padding-bottom:202px;}
+.container { position:relative:top;} 
+.imgB1 { position:absolute; right:top; size: 100px 100px;}
