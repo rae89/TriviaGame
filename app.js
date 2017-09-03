@@ -1,12 +1,12 @@
 (function() {
   function buildQuiz() {
     // we'll need a place to store the HTML output
-    const output = [];
+    var output = [];
 
     // for each question...
     myQuestions.forEach((currentQuestion, questionNumber) => {
       // we'll want to store the list of answer choices
-      const answers = [];
+      var answers = [];
 
       // and for each available answer...
       for (letter in currentQuestion.answers) {
@@ -23,7 +23,7 @@
       // add this question and its answers to the output
       output.push(
         `<div class="question"> ${currentQuestion.question} </div>
-        <div class="answers"> ${answers.join("")} </div>`
+        <p class="answers"> ${answers.join("")} </p>`
       );
     });
 
@@ -33,7 +33,7 @@
 
   function showResults() {
     // gather answer containers from our quiz
-    const answerContainers = quizContainer.querySelectorAll(".answers");
+    var answerContainers = quizContainer.querySelectorAll(".answers");
 
     // keep track of user's answers
     let numCorrect = 0;
@@ -41,9 +41,9 @@
     // for each question...
     myQuestions.forEach((currentQuestion, questionNumber) => {
       // find selected answer
-      const answerContainer = answerContainers[questionNumber];
-      const selector = `input[name=question${questionNumber}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+      var answerContainer = answerContainers[questionNumber];
+      var selector = `input[name=question${questionNumber}]:checked`;
+      var userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
       // if answer is correct
       if (userAnswer === currentQuestion.correctAnswer) {
@@ -63,38 +63,145 @@
     resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
   }
 
-  const quizContainer = document.getElementById("quiz");
-  const resultsContainer = document.getElementById("results");
-  const submitButton = document.getElementById("submit");
-  const myQuestions = [
+  var quizContainer = document.getElementById("quiz");
+  var resultsContainer = document.getElementById("results");
+  var submitButton = document.getElementById("submit");
+  var myQuestions = [
     {
-      question: "Who is the strongest?",
+      question: "Travis Barker was the Drummer for which 90s band?",
       answers: {
-        a: "Superman",
-        b: "The Terminator",
-        c: "Waluigi, obviously"
+        a: "Green Day",
+        b: "Sound Garden",
+        c: "Blink-182",
+        d: "Weezer",
+        e: "Janes Addiction"
+
       },
       correctAnswer: "c"
     },
     {
-      question: "What is the best site ever created?",
+      question: "Kurt Cobain was the lead singer for which 90s band?",
       answers: {
-        a: "SitePoint",
-        b: "Simple Steps Code",
-        c: "Trick question; they're both the best"
+        a: "Nirvana",
+        b: "Radiohead",
+        c: "Stone Temple Pilots",
+        d: "R.E.M",
+        e: "The Foo Fighters"
       },
-      correctAnswer: "c"
+      correctAnswer: "a"
     },
     {
-      question: "Where is Waldo really?",
+      question: "Michael Peter Balzary 'Flea' was the bassist for which hit 90s band?",
       answers: {
-        a: "Antarctica",
-        b: "Exploring the Pacific Ocean",
-        c: "Sitting in a tree",
-        d: "Minding his own business, so stop asking"
+        a: "System of a Down",
+        b: "Korn",
+        c: "Rage Against",
+        d: "Nine Inch Nails",
+        e: "Red Hot Chilli Peppers"
+      },
+      correctAnswer: "e"
+    },
+    {
+      question: "Tiffani Thiessen ' Kelly Kapowski' was a hearthrob on which hit 90s TV Series??",
+      answers: {
+        a: "Boy Meets World",
+        b: "Freaks & Geeks",
+        c: "Melrose Place",
+        d: "Save by The Bell",
+        e: "90210"
       },
       correctAnswer: "d"
+    },
+    {
+      question: "Daniele Fisher 'Topanga' dated who on the hit 90s TV Series Boy Meets World?",
+      answers: {
+        a: "Eric Matthews",
+        b: "Shawn Hunter",
+        c: "Jack Hunter",
+        d: "Cory Matthews",
+        e: "Mr. Feeney"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Jennifer Anniston 'Rachel' ended up with who on the hit 90s TV Series Friends ?",
+      answers: {
+        a: "Joey",
+        b: "Chandler",
+        c: "Waldo",
+        d: "Carl",
+        e: "Ross"
+      },
+      correctAnswer: "e"
+    },
+    {
+      question: "What was Steve Urkle's trademark saying in the hit 90s TV Series Family Matters?",
+      answers: {
+        a: "Did I do that?",
+        b: "Dude",
+        c: "How Rude",
+        d: "What did I do?",
+        e: "Sounds Good!"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "'Zack Morris' played what instrument in Save by the Bell? ",
+      answers: {
+        a: "The Drums",
+        b: "The Guitar",
+        c: "The Keyboard",
+        d: "The Bass",
+        e: "Tambourine"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Britney Spear's first hit 90s single was?",
+      answers: {
+        a: "Bye Bye Bye",
+        b: "I want it that way..",
+        c: "Hit me baby one more time",
+        d: "Closing Time",
+        e: "Sex & Candy"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Finish this Fresh Prince of Bel-Air lyric stanza 'I looked at my kingdom I was finally there To...'",
+      answers: {
+        a: "Tell you how I became the prince of a town called Bel Air",
+        b: "Get to the playground where I spent most of my days",
+        c: "Chillin' out maxin' relaxin' all cool",
+        d: "Shootin some b-ball outside of the school",
+        e: "Sit on my throne as the Prince of Bel-Air"
+      },
+      correctAnswer: "e"
+    },
+    {
+      question: "What was Carlton Bank's favorite singer on the Fresh Prince of Bel-Air ?",
+      answers: {
+        a: "Rod Stewart",
+        b: "Neil Diamond",
+        c: "Tom Jones",
+        d: "Mick Jagger",
+        e: "Bono"
+      },
+      correctAnswer: "c"
+    },
+
+    {
+      question: "Carson Daily was the TV host for which major 90s TV show?",
+      answers: {
+        a: "Yo MTV Raps",
+        b: "TRL (Total Request Live",
+        c: "The Real World",
+        d: "MTV News",
+        e: "Singled Out"
+      },
+      correctAnswer: "b"
     }
+
   ];
 
   // display quiz right away
