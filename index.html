@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Total Trivial Trivia!</title>
-	<link rel="stylesheet" type="text/css" href="quiz.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 
   <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 
@@ -28,13 +28,12 @@
   <button id="submit">Submit Quiz</button>
   <div id="results"></div>
   
-  <script src="/Users/Code2Success/desktop/quiz.js"></script>
+  <script src="/Users/Code2Success/desktop/app.js"></script>
   
   <script>
 document.getElementById('timer').innerHTML =
   03 + ":" + 00;
 startTimer();
-
 function startTimer() {
   var presentTime = document.getElementById('timer').innerHTML;
   var timeArray = presentTime.split(/[:]+/);
@@ -47,7 +46,6 @@ function startTimer() {
     m + ":" + s;
   setTimeout(startTimer, 1000);
 }
-
 function checkSecond(sec) {
   if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
   if (sec < 0) {sec = "59"};
