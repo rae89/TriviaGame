@@ -1,3 +1,32 @@
+document.getElementById('timer').innerHTML =
+  01 + ":" + 15;
+startTimer();
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  if(m<0){
+    alert('You Are Out Of Time!')
+    alert(' Submit & Check Your Answers!')
+    
+    // showResults();
+
+    return;
+  }
+  
+  
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  setTimeout(startTimer, 1000);
+}
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+
 (function() {
   function buildQuiz() {
     // we'll need a place to store the HTML output
@@ -194,7 +223,7 @@
       question: "Carson Daily was the TV host for which major 90s TV show?",
       answers: {
         a: "Yo MTV Raps",
-        b: "TRL (Total Request Live",
+        b: "TRL (Total Request Live)",
         c: "The Real World",
         d: "MTV News",
         e: "Singled Out"
@@ -208,5 +237,6 @@
   buildQuiz();
 
   // on submit, show results
+  alert('Press Enter To Start 90s Quiz Now!')
   submitButton.addEventListener("click", showResults);
 })();
